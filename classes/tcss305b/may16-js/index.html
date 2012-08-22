@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+	<head>
+		<title>TCSS 305B | Andrew Sorensen - University of Washington</title>
+		<meta charset="utf-8">
+		<meta name="description" content="">
+		<link rel="stylesheet" href="../../../css/bootstrap.css" type="text/css">
+		<link rel="stylesheet" href="../../../css/bootstrap-responsive.css" type="text/css">
+		<style>
+			footer a { margin:10px;}
+            .resources h2 { line-height:24px;}
+            footer img { vertical-align:baseline; }
+            .images { height: 300px;  margin-top: 50px;}
+            .images div { display:inline; padding: 30px;}
+		</style>
+		<script src="../../../js/jquery-1.7.2.min.js"></script>
+		<script>
+            var images = ['car', 'bicycle', 'human', 'truck', 'default'];
+
+		    $(document).ready(function() {
+                 $('.images img').each(function() {
+                    $(this).attr('src', 'img/' + images[0] + '.gif');
+                    var id    = $(this).parent('div').attr('id');
+                    var timer = $(this).timer;
+                    timer = setInterval(function() {
+                        if (0 == randomToN(10)) {
+                            clearTimeout(timer);
+                        }
+                        var picking = true;
+                        while (picking) {
+                            var img = $('#' + id + ' img');
+                            var newImg = 'img/' + images[randomToN(images.length -1)] + '.gif';
+                            if (img.attr('src') != newImg) {
+                                picking = false;
+                            }
+                   
+                        }
+
+                        $('#' + id + ' img').attr('src', newImg);
+                     }, 200);
+                 });
+             });
+
+            function randomToN(maxVal)
+            {
+               return Math.round(Math.random() * maxVal);
+            }
+		</script>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="page-header">
+				<h1><a href="/andrewx" style="color:#333">Andrew Sorensen</a></h1>
+				<p>Majoring in <strong><a href="https://www.tacoma.uw.edu/institute-technology/computer-science-systems">Computer Science</a> @ <a href="http://www.tacoma.uw.edu/">UW Tacoma</a></strong></p>
+			</div>
+			<div class="row">
+    			<div class="span5">
+                    <h2>Sample "Slot Machine" Image Switcher</h2>
+                    <div class="images">
+                        <div id="image-1">
+                            <img src="#" />
+                        </div>
+                        <div id="image-2">
+                            <img src="#" />
+                        </div>
+                        <div id="image-3">
+                            <img src="#" />
+                        </div>
+                    </div>
+                </div>
+			</div>
+		<footer>
+			<hr>
+			<a href="http://www.linkedin.com/pub/andrew-sorensen/27/750/130">
+                <img src="https://www.linkedin.com/img/webpromo/btn_myprofile_160x33.png" width="150" height="28" style="border:0;" alt="View Andrew Sorensen's profile on LinkedIn">
+            </a>
+			<a href="https://twitter.com/AndrewX192" class="twitter-follow-button btn btn-large" data-show-count="false" data-size="large">Follow @AndrewX192</a>
+
+			<a href="http://validator.w3.org/check?uri=https%3A%2F%2Fstudents.washington.edu%2Fandrewx" style="float:right">
+				<img src="../../../css/gui/html5-badge-h-css3-semantics.png" style="height: 32px; width: 84px;" alt="Valid HTML">
+			</a>
+			<div>
+			    <p style="text-align:center;">&copy; 2012 Andrew Sorensen, <a href="http://www.andrewsorensen.net">Andrew Sorensen Website Network</a></p>
+			</div>
+		</footer>
+	</div>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	<script>
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-30670716-1']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+</body>
+</html>
+
+
